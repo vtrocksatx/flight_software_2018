@@ -20,7 +20,7 @@ numVideos = 30 # Number of videos to take
 vidLength = 30 # Length of each video in seconds
 
 # Record videos
-for i in range (0 , 30) #30 30s segments = 15m of video
+for i in range (0 , numVideos) #30 30s segments = 15m of video
 	fileName = path + 'video_' + i + '.h264'
 	camera.split_recording('fileName')
 	camera.wait_recording(vidLength)
