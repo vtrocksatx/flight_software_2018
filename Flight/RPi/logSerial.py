@@ -6,16 +6,17 @@ serialPort = serial.Serial("/dev/ttyS0", baudrate=19200, timeout=3.0)
 
 
 #Open and increment boot counter
-bootCountFile = open('bootCountFile', 'r')
+bootFilePath = '/home/pi/FlightLogs/bootCountFile'
+bootCountFile = open(bootFilePath, 'r')
 bootCount = int(bootCountFile.read())
 bootCountFile.close()
-bootCountFile = open('bootCountFile', 'w')
+bootCountFile = open(bootFilePath, 'w')
 bootCountFile.write(str(bootCount+1))
 bootCountFile.close()
 
 #Create directory for log files
-path = './logs/Boot_Number_' + str(bootCount) + '/'
-os.system('mkdir logs/Boot_Number_' + str(bootCount) )
+path = '/home/pi/FlightLogs/Boot_Number_' + str(bootCount) + '/'
+os.system('mkdir /home/pi/FlightLogs/Boot_Number_' + str(bootCount) )
 fileName = path + 'file_0'
 logFile = open(fileName, 'wb')
 
