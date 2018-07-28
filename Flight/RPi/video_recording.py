@@ -16,14 +16,18 @@ camera.resolution = (640,480) # 640x480 view
 camera.framerate = 25 # 25 fps
 
 # Variables
-numVideos = 30 # Number of videos to take
+numVideos = 0 # Number of videos to take
 vidLength = 30 # Length of each video in seconds
+# Setup
+fileName = path + 'video_' + str(numVideos) + '.h264'
+camera.start_recording(fileName)
 
 # Record videos
-for i in range (0 , numVideos) #30 30s segments = 15m of video
-	fileName = path + 'video_' + i + '.h264'
-	camera.split_recording('fileName')
+while True:
+	fileName = path + 'video_' + str(numVideos) + '.h264'
+	camera.split_recording(fileName)
 	camera.wait_recording(vidLength)
+	numVideos+=1
 camera.stop_recording()
 
 
